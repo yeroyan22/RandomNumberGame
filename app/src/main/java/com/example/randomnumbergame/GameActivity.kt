@@ -44,23 +44,23 @@ class GameActivity : AppCompatActivity() {
             }
             entries--
             entiesText.text = "$entries entries left"
-            if (entries < 1) {
-                message.text = "You lost :( Start Over!"
-                entiesText.text = null
-                enter.isVisible = false
-                restart.isVisible = true
-                return@setOnClickListener
-            }
             var guess = input.text.toString().toInt()
             if (guess == num) {
                 message.text = "You won!!!"
                 entiesText.text = null
                 enter.isVisible = false
                 restart.isVisible = true
+                return@setOnClickListener
             } else if (guess < num) {
                 message.text = "Take higher!"
             } else {
                 message.text = "Take lower!"
+            }
+            if (entries < 1) {
+                message.text = "You lost :( Start Over!"
+                entiesText.text = null
+                enter.isVisible = false
+                restart.isVisible = true
             }
         }
 
